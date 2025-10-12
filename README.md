@@ -1,54 +1,118 @@
-- this project is about a website for our university ISIMM
+# 🎓 ISIMM University Portal — Web Project
 
-- the home page has general informations about ISIMM and it's accessible for all users
+**ISIMM Portal** is a web application created for **ISIMM University**, designed to provide information for general users and offer administrative and student functionalities through a hidden, secure interface.  
 
-- to access to the admin page all u have to do is write "admin" with ur keyboard when u r in the home page (exactly like the konami code)
+The project demonstrates **Spring Boot**, **MySQL**, and **Spring Security** integration, while showcasing creative access methods inspired by the **Konami Code** 🎮.
 
-- same thing with the student page , just write "etudiant" in the home page
+---
 
-- we did it like the konami code because we didn't want the normal user to be able to find it easily , like putting the admin and student page in a button or in the menu bar in the home page.
+## 🏠 Home Page
 
-  No we wanted it kinda hidden.
+The **home page** contains general information about ISIMM and is accessible to all users.  
 
-- after writing "admin" u will get a login page , if u enter a student's username and password u will get a customised 403 error page
+Hidden access to the **admin** and **student** pages is enabled via special keyword entries:
 
-- if u log in with the right admin username and password u will get to the admin page
+- **Admin Page:** Type `admin` anywhere on the home page  
+- **Student Page:** Type `etudiant` anywhere on the home page  
 
-- the admin can :
+💡 This method is inspired by the Konami Code to **hide sensitive pages** from normal users instead of exposing them through buttons or menus.  
 
-  - manage the students : add a student , edit a student , delete a student , check the students list , search for a student , add the marks of students , add the timetables of students
+---
 
-  - manage the accounts : create a student's account , delete a student's account , edit a student's account , check the list of all accounts ( the admin is the one responsible for the registration of the
-students. the students shouldn't be able to register themselves so the admin create their accounts and gives them the username and password in real life or by email (this is a way to prevent normal users from registration))
+## 🔐 Access Control
 
-  (the passwords are encrypted (i used spring security) so even the admin himself won't be able to know a student password after adding it to the database unless he memorized it or saved it somewhere else.
-so if a student forget their password they can contact the admin and ask them for a new password )
+### Admin Access
+- After typing `admin`, a **login page** appears.  
+- **Valid admin credentials** grant access to the **admin dashboard**.  
+- Logging in with a **student account** triggers a **custom 403 error page**.
 
-  - manage the news (the updates) : add a new , delete a new , edit a new , check the news list , check the notifcations (in the notifications the admin will find the messages sent by normal users from the
- "contact us" in the menu bar of the home page
+### Student Access
+- After typing `etudiant`, students can log in to access their **personal dashboard**.
 
-- the student can :
+---
 
-  - check their profile informations
+## 🛠️ Admin Functionalities
 
-  - check the timetable
+The admin can manage multiple aspects of the portal:
 
-  - check their marks
+### 👩‍🎓 Student Management
+- Add, edit, delete students  
+- View the full list of students  
+- Search for a student  
+- Add student **marks** and **timetables**
 
-  - check the news 
+### 🧑‍💻 Account Management
+- Create, edit, or delete student accounts  
+- View all accounts  
 
-- coding and running the project part :
+> Passwords are encrypted using **Spring Security**, so the admin cannot see student passwords.  
+> Students can request a password reset from the admin if needed.
 
-  - make sure u installed and configured mysql and spring boot (if u get some problems in the project with mysql u can try installing wampserver )
- 
-  - change the "application.properties" file with ur own informations (username , password)
- 
-  - create the database "isimm_db"
- 
-  - add the admin account manually into the database : in the table "account" add the cin , username and password. in the table "role" add the cin , username and the user_role ( must be : "ROLE_ADMIN")
- 
-  - run the project as a spring boot app
- 
-  - write "http://localhost:8090/home" in ur web navigator to see the website 
- 
-  - when adding the timetable or the marks , u will get a list of all the grades well the only one working is "ingenieur informatique 1" and i explained in the code in comments how to make all the grades accessible ( i mean for the admin to be able to add timetables and marks for everyone ). i just didn't do it myself because i don't know the subjects of the other grades but i made it clear in the comments how to code it as it is the same way i coded timetable and marks for "ingenieur info 1"
+### 📰 News & Notifications
+- Add, edit, delete news items  
+- Check the news list  
+- View notifications sent by users through the **“Contact Us”** form  
+
+---
+
+## 🧑‍🎓 Student Functionalities
+
+Students can:  
+- View profile information  
+- Check their timetable  
+- Review their marks  
+- Access news and updates
+
+---
+
+## ⚙️ Setup & Running the Project
+
+1. **Install dependencies:**  
+   - MySQL  
+   - Spring Boot (Java 17+)  
+   > Optional: WAMP Server if MySQL setup is problematic  
+
+2. **Configure database:**  
+   - Edit `application.properties` with your MySQL username and password  
+   - Create database `isimm_db`  
+
+3. **Add Admin account manually:**  
+   - Table `account`: add CIN, username, password  
+   - Table `role`: add CIN, username, role (`ROLE_ADMIN`)  
+
+4. **Run the application:**  
+   - Launch as a Spring Boot app  
+   - Open in browser: `http://localhost:8090/home`  
+
+5. **Using the Admin dashboard:**  
+   - Adding timetables or marks currently works for **“Ingenieur Informatique 1”**  
+   - Comments in code explain how to extend functionality for other grades  
+
+---
+
+## 💡 Notes & Tips
+
+- The **hidden login method** ensures normal users cannot access sensitive pages  
+- Student accounts must be **created manually by the admin** for security  
+- Spring Security ensures **encrypted passwords** and safe authentication  
+- Timetables and marks can be expanded to other grades following the instructions in the code  
+
+---
+
+## 🎨 Tech Stack
+
+- **Backend:** Spring Boot  
+- **Frontend:** HTML, CSS, JavaScript  
+- **Database:** MySQL  
+- **Security:** Spring Security  
+
+---
+
+## 🚀 Credits
+
+- Developed by **[Your Name]** for **ISIMM University Project**  
+- Demonstrates secure access, student/admin management, and dynamic content
+
+---
+
+⭐ Enjoy exploring the ISIMM Portal! Remember: sensitive pages are hidden, so try the Konami-inspired code carefully 😉
