@@ -110,7 +110,7 @@ Students can:
 
 ## 🚀 Credits
 
-- Developed by **[Your Name]** for **ISIMM University Project**  
+- Developed by **Nadine Mlayeh** for **ISIMM University Project**  
 - Demonstrates secure access, student/admin management, and dynamic content
 
 ---
